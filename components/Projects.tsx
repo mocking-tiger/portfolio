@@ -3,14 +3,9 @@
 import { useLanguageStore } from "@/zustand/store";
 import SectionTitle from "./SectionTitle";
 import ProjectItem from "./ProjectItem";
-import Linkbrary from "./descriptions/Linkbrary";
-import Openmind from "./descriptions/Openmind";
-import Taskify from "./descriptions/Taskify";
-import Yeogiya from "./descriptions/Yeogiya";
-import Slidtodo from "./descriptions/Slidtodo";
-import Netplix from "./descriptions/Netplix";
 import Shuren from "./descriptions/Shuren";
 import Startupbuilder from "./descriptions/Startupbuilder";
+import Opencorps from "./descriptions/Opencorps";
 
 export default function Projects() {
   const lang = useLanguageStore((state) => state.language);
@@ -38,7 +33,9 @@ export default function Projects() {
         />
         <ProjectItem
           type="company"
-          title={lang === "korean" ? "스타트업-빌더" : "スタートアップ・ビルダー"}
+          title={
+            lang === "korean" ? "스타트업-빌더" : "スタートアップ・ビルダー"
+          }
           images={[
             "/projects/startupbuilder-1.png",
             "/projects/startupbuilder-2.png",
@@ -52,6 +49,23 @@ export default function Projects() {
           ]}
           description={<Startupbuilder />}
           link="https://startupbuilder.co.kr/"
+          git=""
+        />
+        <ProjectItem
+          type="company"
+          title={lang === "korean" ? "오픈코어" : "オープンコア"}
+          images={[
+            "/projects/opencorps-1.png",
+            "/projects/opencorps-2.png",
+            "/projects/opencorps-3.png",
+            "/projects/opencorps-4.png",
+            "/projects/opencorps-5.png",
+            "/projects/opencorps-6.png",
+            "/projects/opencorps-7.png",
+            "/projects/opencorps-8.png",
+          ]}
+          description={<Opencorps />}
+          link="https://startupbuilder.co.kr:41000/login"
           git=""
         />
       </div>
