@@ -20,6 +20,10 @@ export default function Shuren() {
         회원가입 없이도 즉시 체험할 수 있도록 데모 계정을 제공하며, 데모 계정은
         Vercel Cron Jobs를 통해 매일 자동으로 초기 상태로 리셋됩니다. <br />
         <br />
+        <p className="text-red-500">
+          현재 데이터베이스 supabase 무료티어 사용으로 인해 동시연결 제한 및 콜드 스타트 이슈로
+          사용자경험이 썩 좋지 않은 상황이라 none db버전으로 다시 개발중입니다.
+        </p>
       </p>
     );
   } else {
@@ -34,6 +38,11 @@ export default function Shuren() {
       <br />
       <br />
       デモアカウントを提供し、デモアカウントはVercel Cron Jobsを使用して毎日自動的にリセットされます。
+      <br />
+      <br />
+      <p className="text-red-500">
+        現在、データベースのSupabase無料ティアを使用しているため、同時接続制限やコールドスタートの問題があり、ユーザー体験があまり良くない状況です。そのため、データベースなしのバージョンで再開発中です。
+      </p>
     </p>;
   }
 }
