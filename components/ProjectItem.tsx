@@ -16,6 +16,7 @@ type ProjectItemType = {
   description: React.ReactNode;
   link: string;
   git: string;
+  wip?: boolean;
 };
 
 export default function ProjectItem({
@@ -25,6 +26,7 @@ export default function ProjectItem({
   description,
   link,
   git,
+  wip = false,
 }: ProjectItemType) {
   const lang = useLanguageStore((state) => state.language);
   const { Modal, openModal } = useModal();
@@ -81,13 +83,19 @@ export default function ProjectItem({
         <div className="w-[350px] md:w-[400px]">
           <div className="p-5 font-pretendard text-left">{description}</div>
           <hr className="m-3" />
-          <Link href={link} target="_blank" className="text-blue-400">
-            {lang === "korean" ? "서비스 바로가기" : "サービスを見る"}
-          </Link>
-          <br />
-          {type !== "company" ?<Link href={git} target="_blank" className="text-blue-400">
+          {type !== "company" && wip ? (
+            <span className="text-yellow-500">
+              {lang === "korean" ? "작업중입니다." : "現在作業中でございます。"}
+            </span>
+          ) : type !== "company" && !wip ? (
+            <Link href={link} target="_blank" className="text-blue-400">
+              {lang === "korean" ? "서비스 바로가기" : "サービスを見る"}
+            </Link>
+          ) : null}
+          {type !== "company" ? <br /> : null}
+          {type !== "company" ? <Link href={git} target="_blank" className="text-blue-400">
             github repository
-          </Link> : <span className="text-gray-400">{lang === "korean" ? "회사 프로젝트는 git이 공개되지 않습니다." : "会社プロジェクトは git が公開されていません。"}</span>}
+          </Link> : <span className="text-gray-400">{lang === "korean" ? "회사 프로젝트는 url, git이 공개되지 않습니다." : "会社プロジェクトは url, gitが公開されていません。"}</span>}
         </div>
       </div>
       <Modal name="image-viewer">

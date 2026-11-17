@@ -30,6 +30,7 @@ export default function Projects() {
           description={<Shuren />}
           link="https://shuren.vercel.app/"
           git="https://github.com/mocking-tiger/shuren"
+          wip
         />
         <ProjectItem
           type="company"
