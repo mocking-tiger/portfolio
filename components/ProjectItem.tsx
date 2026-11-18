@@ -59,7 +59,7 @@ export default function ProjectItem({
     } else {
       switch (type) {
         case "company":
-          return "(会社プロジェクト)";
+          return "(企業プロジェクト)";
         case "team":
           return "(チームプロジェクト)";
         case "personal":
@@ -95,7 +95,7 @@ export default function ProjectItem({
           {type !== "company" ? <br /> : null}
           {type !== "company" ? <Link href={git} target="_blank" className="text-blue-400">
             github repository
-          </Link> : <span className="text-gray-400">{lang === "korean" ? "회사 프로젝트는 url, git이 공개되지 않습니다." : "会社プロジェクトは url, gitが公開されていません。"}</span>}
+          </Link> : <span className="text-gray-400">{lang === "korean" ? "회사 프로젝트는 url, git이 공개되지 않습니다." : "企業プロジェクトは url, gitが公開されていません。"}</span>}
         </div>
       </div>
       <Modal name="image-viewer">
